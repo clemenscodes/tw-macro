@@ -25,9 +25,13 @@
 //! does not compile) and its inner string cannot be extracted. Styling coupling
 //! between components is therefore impossible to express.
 //!
-//! The `dioxus` feature adds `ClassList`'s `IntoAttributeValue` impl and the
-//! `to_library_class` bridge; without it the crate is a pure, native-testable
-//! engine usable by any framework.
+//! The `dioxus` feature adds `ClassList`'s `IntoAttributeValue` impl, so a
+//! `CLASS` can be handed to a `class:` attribute on one of our own elements;
+//! without it the crate is a pure, native-testable engine usable by any
+//! framework. There is deliberately no bridge for handing a `ClassList` to a
+//! third-party component's `String` `class` prop: a library element never wears
+//! a project class directly — it is wrapped in one of our own components whose
+//! `classes!` `CLASS` styles a real element.
 
 mod class_list;
 #[macro_use]

@@ -9,20 +9,18 @@ pub struct ClassList {
 }
 
 impl ClassList {
-    /// Wrap an already-assembled class string. Only the generated `classes!`
-    /// and `states!` macros call this.
-    pub const fn new(class: &'static str) -> Self {
+    /// Wrap an already-assembled class string. **Internal to the generated
+    /// `classes!`/`states!` macros only** — hidden from docs and namespaced so
+    /// it can never be mistaken for a public constructor. There is deliberately
+    /// no public `ClassList::new`: a component's styling is always the `classes!`
+    /// macro over Tailwind literals, never a hand-written class string, and a
+    /// library element never carries a project class directly — it is wrapped in
+    /// one of our own components whose `classes!` `CLASS` styles a real element.
+    /// A raw `ClassList::new("…")` or `.to_library_class()` no longer compiles,
+    /// which surfaces every such escape-hatch as a build error.
+    #[doc(hidden)]
+    pub const fn __from_macro(class: &'static str) -> Self {
         Self { class }
-    }
-
-    /// Bridge for handing this class to a third-party component whose `class`
-    /// prop is typed `String` rather than an attribute value (e.g. the
-    /// `dioxus_primitives` `DialogContent`). Never called from a component body
-    /// — bodies always use `class: CLASS` — so the no-interpolation guarantee
-    /// still holds everywhere it matters.
-    #[cfg(feature = "dioxus")]
-    pub fn to_library_class(self) -> String {
-        self.class.to_string()
     }
 }
 

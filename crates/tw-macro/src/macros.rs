@@ -102,7 +102,7 @@ macro_rules! define_styling {
                         };
 
                         #[allow(dead_code)]
-                        pub(super) const CLASS: $crate::ClassList = $crate::ClassList::new(CLASS_STR);
+                        pub(super) const CLASS: $crate::ClassList = $crate::ClassList::__from_macro(CLASS_STR);
                     };
                 }
 
@@ -132,7 +132,7 @@ macro_rules! define_styling {
                                             $crate::internal::joined_len(CLASS_STR, &[OVERLAY]);
                                         const BYTES: [u8; LEN] =
                                             $crate::internal::join_into::<LEN>(CLASS_STR, &[OVERLAY]);
-                                        const STATE_CLASS: $crate::ClassList = $crate::ClassList::new(
+                                        const STATE_CLASS: $crate::ClassList = $crate::ClassList::__from_macro(
                                             match ::core::str::from_utf8(&BYTES) {
                                                 ::core::result::Result::Ok(class) => class,
                                                 ::core::result::Result::Err(_) => {

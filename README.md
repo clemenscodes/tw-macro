@@ -21,8 +21,10 @@ tw-macro = { git = "https://github.com/clemenscodes/tw-macro", tag = "v0.1.0" }
 ### The `dioxus` feature
 
 Enable the optional `dioxus` feature to get `ClassList`'s
-`IntoAttributeValue` impl and the `to_library_class` bridge, so a `ClassList`
-can be handed directly to a `class:` attribute:
+`IntoAttributeValue` impl, so a `ClassList` can be handed directly to a
+`class:` attribute on one of our own elements. There is no bridge for a
+third-party component's `String` `class` prop: wrap the library element in one
+of our own components and style a real element with `classes!` `CLASS` instead.
 
 ```toml
 tw-macro = { git = "https://github.com/clemenscodes/tw-macro", tag = "v0.1.0", features = ["dioxus"] }
