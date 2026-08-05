@@ -54,10 +54,7 @@ fn joined_len_counts_identity_plus_space_prefixed_utilities() {
     let mobile: &[TailwindClass] = tw!["mobile:flex"];
     let bands: &[&[TailwindClass]] = &[base, mobile];
     // "header" (6) + " @container" (11) + " relative" (9) + " mobile:flex" (12)
-    assert_eq!(
-        crate::internal::joined_len("header", bands),
-        6 + 11 + 9 + 12
-    );
+    assert_eq!(crate::internal::joined_len("header", bands), 6 + 11 + 9 + 12);
 }
 
 const VOCAB: &[&str] = &["mobile", "tablet", "laptop", "desktop", "qhd", "uhd"];

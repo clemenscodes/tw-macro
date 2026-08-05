@@ -13,7 +13,9 @@ pub struct TailwindClass {
 impl TailwindClass {
     /// Wrap a single utility class literal. Only the styling macros call this.
     pub const fn new(utility: &'static str) -> Self {
-        Self { utility }
+        Self {
+            utility,
+        }
     }
 
     /// The underlying utility string.

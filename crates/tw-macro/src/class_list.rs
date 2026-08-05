@@ -20,7 +20,9 @@ impl ClassList {
     /// which surfaces every such escape-hatch as a build error.
     #[doc(hidden)]
     pub const fn __from_macro(class: &'static str) -> Self {
-        Self { class }
+        Self {
+            class,
+        }
     }
 }
 

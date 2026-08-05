@@ -86,7 +86,10 @@ struct SegmentBounds {
 
 impl SegmentBounds {
     const fn new(start: usize, end: usize) -> Self {
-        Self { start, end }
+        Self {
+            start,
+            end,
+        }
     }
 
     const fn start(&self) -> usize {
@@ -194,7 +197,11 @@ pub const fn build_identity<const N: usize>(module_path: &str) -> [u8; N] {
     let mut index = 0;
     while index < N {
         let byte = bytes[start + index];
-        out[index] = if byte == b'_' { b'-' } else { byte };
+        out[index] = if byte == b'_' {
+            b'-'
+        } else {
+            byte
+        };
         index += 1;
     }
     out
@@ -221,7 +228,11 @@ pub const fn assert_component_name(component: &str, module_path: &str) {
         if pascal_index >= pascal.len() {
             panic!("component name does not match its directory");
         }
-        let expected = if at_word_start { to_upper(byte) } else { byte };
+        let expected = if at_word_start {
+            to_upper(byte)
+        } else {
+            byte
+        };
         if pascal[pascal_index] != expected {
             panic!("component name does not match its directory");
         }
