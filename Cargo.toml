@@ -6,10 +6,10 @@ members = ["crates/tw-macro"]
 authors = ["clemenscodes"]
 edition = "2024"
 license = "MIT"
-version = "0.2.0"
+version = "0.3.0"
 
 [workspace.dependencies]
-dioxus = { version = "=0.7.9" }
+dioxus = { version = "=0.7.10" }
 
 [profile.release]
 codegen-units = 16

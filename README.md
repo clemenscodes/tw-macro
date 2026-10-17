@@ -15,7 +15,7 @@ Add it as a git dependency, pinned to a tag:
 
 ```toml
 [dependencies]
-tw-macro = { git = "https://github.com/clemenscodes/tw-macro", tag = "v0.1.0" }
+tw-macro = { git = "https://github.com/clemenscodes/tw-macro", tag = "v0.3.0" }
 ```
 
 ### The `dioxus` feature
@@ -27,7 +27,7 @@ third-party component's `String` `class` prop: wrap the library element in one
 of our own components and style a real element with `classes!` `CLASS` instead.
 
 ```toml
-tw-macro = { git = "https://github.com/clemenscodes/tw-macro", tag = "v0.1.0", features = ["dioxus"] }
+tw-macro = { git = "https://github.com/clemenscodes/tw-macro", tag = "v0.3.0", features = ["dioxus"] }
 ```
 
 Without the feature, the crate is a pure, framework-agnostic engine.
